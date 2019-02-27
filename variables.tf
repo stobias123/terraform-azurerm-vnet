@@ -8,6 +8,11 @@ variable "resource_group_name" {
   default     = "myapp-rg"
 }
 
+variable "create_resource_group" {
+  description = "Boolean for resource group creation. Defaults to true."
+  default     = "true"
+}
+
 variable "location" {
   description = "The location/region where the core network will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
   default     = "westus"
@@ -18,7 +23,7 @@ variable "address_space" {
   default     = "10.0.0.0/16"
 }
 
-# If no values specified, this defaults to Azure DNS 
+# If no values specified, this defaults to Azure DNS
 variable "dns_servers" {
   description = "The DNS servers to be used with vNet."
   default     = []
