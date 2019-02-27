@@ -1,12 +1,12 @@
 #Azure Generic vNet Module
 resource "azurerm_resource_group" "vnet" {
-  count    = "${var.create_resource_group  ? 0 : 1}"
+  count    = "${var.create_resource_group ? 1 : 0}"
   name     = "${var.resource_group_name}"
   location = "${var.location}"
 }
 
 data "azurerm_resource_group" "vnet" {
-  name = "${var.resource_group_name}"
+  name = "${azurerm_resource_group.vnet.name}"
 }
 
 resource "azurerm_virtual_network" "vnet" {
